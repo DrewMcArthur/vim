@@ -779,7 +779,7 @@ install_bat_choice(int idx)
 	    fprintf(fd, "\n");
 
 	    /* Give an error message when the executable could not be found. */
-	    fprintf(fd, "if exist \"%%VIM_EXE_DIR%%\\%s\" goto havevim\n",
+	    fprintf(fd, "if exist %%VIM_EXE_DIR%%\\%s goto havevim\n",
 								     exename);
 	    fprintf(fd, "echo \"%%VIM_EXE_DIR%%\\%s\" not found\n", exename);
 	    fprintf(fd, "goto eof\n");
@@ -819,7 +819,7 @@ install_bat_choice(int idx)
 	    }
 
 	    /* Always use quotes, $VIM or $VIMRUNTIME might have a space. */
-	    fprintf(fd, "\"%%VIM_EXE_DIR%%\\%s\" %s %%VIMARGS%%\n",
+	    fprintf(fd, "%%VIM_EXE_DIR%%\\%s %s %%VIMARGS%%\n",
 							     exename, vimarg);
 	    fprintf(fd, "goto eof\n");
 	    fprintf(fd, "\n");
